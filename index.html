@@ -1,1 +1,162 @@
-<p>Hello 大家好</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        .bigbox{
+            display: flex;
+        }
+        .left{
+            width: 200px;
+            height: 800px;
+            overflow: auto;
+            position: fixed;
+        }
+        .left div{
+            width: 100%;
+            height: auto;
+        }
+        .left div img{
+            width: 100%;
+            height: auto;
+        }
+        .right div{
+            width: 100%;
+            height: auto;
+        }
+        .right div img{
+            width: 100%;
+            height: auto;
+        }
+        .preview{
+            width: 800px;
+            height: auto;
+            display: none;
+            background-color: pink;
+            position: fixed;
+            left: 200px;
+            top: 200px; 
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <img src="" alt="" class="preview">
+    <div class="bigbox">
+        <div class="left">
+            <div>
+                连续缺失值置0修正
+                <img src="result/连续缺失值置0修正1.png" alt="">
+            </div>
+            <div>
+                连续缺失值置0修正
+                <img src="result/连续缺失值置0修正2.png" alt="">
+            </div>
+            <div>
+                连续缺失值删除修正
+                <img src="result/连续缺失值删除修正1.png" alt="">
+            </div>
+            <div>
+                连续缺失值删除修正
+                <img src="result/连续缺失值删除修正2.png" alt="">
+            </div>
+            <div>
+                全站点年份
+                <img src="result/全站点年份.png" alt="">
+            </div>
+            <div>
+                全站点2007年前
+                <img src="result/全站点2007年前.png" alt="">
+            </div>
+            <div>
+                全站点2007年前预测2007年部分
+                <img src="result/全站点2007年前预测2007年部分.png" alt="">
+            </div>
+            <div>
+                全站点2007年后
+                <img src="result/全站点2007年后.png" alt="">
+            </div>
+            <div>
+                THL00全年份
+                <img src="result/THL00全年份.png" alt="">
+            </div>
+            <div>
+                THL002007年前
+                <img src="result/THL002007年前.png" alt="">
+            </div>
+            <div>
+                THL002007年前预测2007部分
+                <img src="result/THL002007年前预测2007部分.png" alt="">
+            </div>
+            <div>
+                THL002007年后
+                <img src="result/THL002007年后.png" alt="">
+            </div>
+        </div>
+        <div class="right">
+            <div>
+                <img src="result/连续缺失值置0修正1.png" alt="">
+            </div>
+            <div>
+                <img src="result/连续缺失值置0修正2.png" alt="">
+            </div>
+            <div>
+                <img src="result/连续缺失值删除修正1.png" alt="">
+            </div>
+            <div>
+                <img src="result/连续缺失值删除修正2.png" alt="">
+            </div>
+            <div>
+                <img src="result/全站点年份.png" alt="">
+            </div>
+            <div>
+                <img src="result/全站点2007年前.png" alt="">
+            </div>
+            <div>
+                <img src="result/全站点2007年前预测2007年部分.png" alt="">
+            </div>
+            <div>
+                <img src="result/全站点2007年后.png" alt="">
+            </div>
+            <div>
+                <img src="result/THL00全年份.png" alt="">
+            </div>
+            <div>
+                <img src="result/THL002007年前.png" alt="">
+            </div>
+            <div>
+                <img src="result/THL002007年前预测2007部分.png" alt="">
+            </div>
+            <div>
+                <img src="result/THL002007年后.png" alt="">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let preview_img = document.getElementsByClassName('preview')[0]
+        let left = document.getElementsByClassName('left')
+        index = 0
+        for (let i = 0; i < left[0].children.length; i++) {
+            item = left[0].children[i].children[0]
+            item.addEventListener("mouseenter",function(e){
+                console.log('鼠标进入');
+                preview_img.style = 'display: inline-block'
+                top_distance = e.clientY
+                preview_img.style.top = top_distance+'px'
+                preview_img.setAttribute('src', this.src)
+                console.log(item);
+            })
+            item.addEventListener("mouseleave",function(){
+                console.log('鼠标离开');
+                preview_img.style = 'display: none'
+            })
+        }
+    </script>
+</body>
+</html>
